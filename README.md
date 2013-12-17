@@ -19,3 +19,9 @@ defmodule Project.Handler do
 
 end
 ```
+
+```
+Interactive Elixir (0.12.0) - press Ctrl+C to exit (type h() ENTER for help)
+iex(1)> {:ok, pid} = :elli.start_link([{:callback, Project.Handler}, {:port, 3000}])
+{:ok, #PID<0.82.0>}
+```
