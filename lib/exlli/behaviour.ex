@@ -7,7 +7,10 @@ defmodule Exlli.Handler do
             def handle(request, _args) do
                 handle(:elli_request.method(request), :elli_request.path(request), %{
                     headers: :elli_request.headers(request),
+                    args: :elli_request.get_args_decoded(request) 
+                        |> Enum.map(fn({key,val})-> {String.to_existing_atom(key), val} end),
                     data: :elli_request.post_args_decoded(request)
+                        |> Enum.map(fn({key,val})-> {String.to_existing_atom(key), val} end),
                 })
             end
 
